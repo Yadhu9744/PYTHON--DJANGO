@@ -1,0 +1,187 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block title %}Home - ShopEasy{% endblock %}
+
+{% block content %}
+
+<section class="main-carousel py-2 bg-light">
+    <div id="mainCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            
+            <div class="carousel-item active">
+                <div class="carousel-slide-bg" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="container">
+                        <div class="row align-items-center min-vh-70">
+                            <div class="col-lg-6">
+                                <div class="carousel-content text-white">
+                                    <span class="badge bg-warning text-dark mb-3">Limited Time</span>
+                                    <h1 class="display-4 fw-bold mb-4">Summer Sale 50% Off</h1>
+                                    <p class="lead mb-4">Discover amazing deals on top brands. Don't miss our biggest sale!</p>
+                                    <a href="{% url 'product_list' %}" class="btn btn-light btn-lg px-4">
+                                        <i class="fas fa-shopping-bag me-2"></i>Shop Now
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 text-center">
+                                <img src="https://images.unsplash.com/photo-1607082350899-7e105aa886ae?w=600" 
+                                     class="img-fluid rounded-3" 
+                                     alt="Summer Sale" 
+                                     style="max-height: 400px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="carousel-item">
+                <div class="carousel-slide-bg" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <div class="container">
+                        <div class="row align-items-center min-vh-70">
+                            <div class="col-lg-6">
+                                <div class="carousel-content text-white">
+                                    <span class="badge bg-info mb-3">New Arrivals</span>
+                                    <h1 class="display-4 fw-bold mb-4">Latest Tech Gadgets</h1>
+                                    <p class="lead mb-4">Get the newest smartphones, laptops, and accessories with exclusive discounts.</p>
+                                    <a href="{% url 'product_list' %}" class="btn btn-light btn-lg px-4">
+                                        <i class="fas fa-laptop me-2"></i>Shop Electronics
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 text-center">
+                                <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=600" 
+                                     class="img-fluid rounded-3" 
+                                     alt="Electronics"
+                                     style="max-height: 400px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="carousel-item">
+                <div class="carousel-slide-bg" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <div class="container">
+                        <div class="row align-items-center min-vh-70">
+                            <div class="col-lg-6">
+                                <div class="carousel-content text-white">
+                                    <span class="badge bg-danger mb-3">Trending</span>
+                                    <h1 class="display-4 fw-bold mb-4">Fashion Collection 2024</h1>
+                                    <p class="lead mb-4">Stay ahead with our latest fashion collection. Up to 40% off premium brands.</p>
+                                    <a href="{% url 'product_list' %}" class="btn btn-light btn-lg px-4">
+                                        Shop Fashion
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 text-center">
+                                <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=600" 
+                                     class="img-fluid rounded-3" 
+                                     alt="Fashion"
+                                     style="max-height: 400px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+</section>
+
+<section class="bg-light py-4">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3">
+                <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-shipping-fast text-primary me-3 fa-2x"></i>
+                    <div class="text-start">
+                        <h6 class="mb-0 fw-bold">Free Shipping</h6>
+                        <small class="text-muted">Orders over $99</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-undo-alt text-success me-3 fa-2x"></i>
+                    <div class="text-start">
+                        <h6 class="mb-0 fw-bold">Easy Returns</h6>
+                        <small class="text-muted">30-day policy</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-shield-alt text-warning me-3 fa-2x"></i>
+                    <div class="text-start">
+                        <h6 class="mb-0 fw-bold">Secure Payment</h6>
+                        <small class="text-muted">100% secure</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="d-flex align-items-center justify-content-center">
+                    <i class="fas fa-headset text-info me-3 fa-2x"></i>
+                    <div class="text-start">
+                        <h6 class="mb-0 fw-bold">24/7 Support</h6>
+                        <small class="text-muted">Always here</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row mb-5 text-center">
+      <div class="col-12">
+        <h2 class="display-5 fw-bold mb-2">Featured Products</h2>
+        <p class="text-muted">Inspired by top picks from Amazon & Flipkart</p>
+      </div>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      {% for product in featured_products %}
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card h-100 border-0 shadow-sm product-card" style="transition: all 0.3s ease;">
+          <div class="overflow-hidden rounded-top">
+            <img src="{{ product.image_url }}" alt="{{ product.title }}" class="img-fluid"
+              style="height: 250px; width: 100%; object-fit: cover; transition: transform 0.3s ease;">
+          </div>
+          <div class="card-body text-center">
+            <h5 class="fw-semibold mb-2">{{ product.title }}</h5>
+            <p class="text-muted small">{{ product.description|truncatewords:12 }}</p>
+            <h5 class="text-primary fw-bold mb-3">₹{{ product.price }}</h5>
+            <a href="{% url 'product_list' %}" class="btn btn-dark btn-sm px-4">
+              <i class="fas fa-shopping-cart me-2"></i>View
+            </a>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="col-12 text-center">
+        <div class="alert alert-info">
+          <h4>No featured products available</h4>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

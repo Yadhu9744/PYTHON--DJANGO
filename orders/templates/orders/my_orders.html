@@ -1,0 +1,56 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block title %}My Orders{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4"> My Orders</h2>
+
+    {% if orders %}
+        {% for order in orders %}
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    Order #{{ order.id }} - ₹{{ order.total_price }} - {{ order.created_at|date:"d M Y, H:i" }}
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered text-center align-middle mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Image</th>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in order.items.all %}
+                                <tr>
+                                    <td>
+                                        {% if item.product.image_url %}
+                                            <img src="{{ item.product.image_url }}" width="70" alt="{{ item.product.title }}">
+                                        {% else %}
+                                            <img src="{% static 'store/images/no-image.png' %}" width="70">
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ item.product.title }}</td>
+                                    <td>₹{{ item.product.price }}</td>
+                                    <td>{{ item.quantity }}</td>
+                                    <td>₹{{ item.total_price }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="text-center mt-5">
+            <img src="{% static 'store/images/empty_cart.png' %}" width="200" alt="No Orders">
+            <p class="mt-3">You have not placed any orders yet!</p>
+            <a href="{% url 'product_list' %}" class="btn btn-primary mt-3">Shop Now</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

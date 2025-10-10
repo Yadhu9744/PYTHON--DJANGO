@@ -1,0 +1,59 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block title %}Your Cart{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="text-center mb-4">🛒 Your Cart</h2>
+
+  {% if cart_items %}
+    <table class="table table-bordered align-middle text-center">
+      <thead class="table-primary">
+        <tr>
+          <th>Image</th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart_items %}
+          <tr>
+            <td>
+              {% if item.product.image_url %}
+                <img src="{{ item.product.image_url }}" alt="{{ item.product.title }}" width="70">
+              {% else %}
+                <img src="{% static 'store/images/no-image.png' %}" width="70">
+              {% endif %}
+            </td>
+            <td>{{ item.product.title }}</td>
+            <td>₹{{ item.product.price }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>₹{{ item.total_price }}</td>
+            <td>
+              <form action="{% url 'remove_from_cart' item.product.id %}" method="POST" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="text-end mt-3">
+      <h4>Total Amount: ₹{{ total }}</h4>
+      <a href="{% url 'checkout' %}" class="btn btn-success mt-2">Proceed to Checkout</a>
+    </div>
+
+  {% else %}
+    <div class="text-center mt-5">
+      <h4 class="mt-3">Your cart is empty!</h4>
+      <a href="{% url 'product_list' %}" class="btn btn-primary mt-3">Shop Now</a>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}
